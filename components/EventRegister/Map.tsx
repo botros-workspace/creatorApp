@@ -325,7 +325,9 @@ const MapContainer: FunctionComponent = () => {
                 m={'auto'}
                 textAlign={'center'}
               >
-                {newEvent.selectedAddress}
+                {newEvent.selectedAddress === ''
+                  ? 'Please choose a location...'
+                  : newEvent.selectedAddress}
               </Text>
               {showSelectedLocationMark && (
                 <Button
