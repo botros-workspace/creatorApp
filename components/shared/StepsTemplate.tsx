@@ -6,7 +6,10 @@ import { useRecoilState } from 'recoil'
 import { configurationsState } from '../../shared/recoilStates/configurations.state'
 import { REGISTER_EVENT_LOCATION_PAGE } from '../../shared/constants/endpoints'
 import { useRouter } from 'next/router'
-import { newEventState } from '../../shared/recoilStates/new-event.state'
+import {
+  initialEventState,
+  newEventState,
+} from '../../shared/recoilStates/new-event.state'
 import axios from 'axios'
 import { uuid } from 'uuidv4'
 import { EventCategories } from '../../shared/enums/event-categories.enum'
@@ -127,7 +130,7 @@ const StepsTemplate: FunctionComponent<Props> = ({
       if (response) {
         console.log('Response data: ', response.data)
         successToast('Event Creation', 'Event was created successfully!')
-        setNewEvent({ ...newEvent, selectedAddress: '', lat: 0, long: 0 })
+        setNewEvent(initialEventState)
         setConfig({ ...config, newEventLocationProvided: false })
         router.push(REGISTER_EVENT_LOCATION_PAGE)
       }

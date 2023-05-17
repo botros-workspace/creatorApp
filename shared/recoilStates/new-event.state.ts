@@ -4,7 +4,7 @@ import { recoilPersist } from 'recoil-persist'
 import { EventCategories } from '../enums/event-categories.enum'
 
 const { persistAtom } = recoilPersist()
-const initialEventState: EventAttributes = {
+export const initialEventState: EventAttributes = {
   title: '',
   eventEndDateTime: '',
   eventStartDateTime: '',
