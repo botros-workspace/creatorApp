@@ -120,9 +120,7 @@ const CategoriesSelectionContainer: FunctionComponent = () => {
           spacing={{ base: '12px', sm: '20px' }}
           w={{ base: '90%', lg: '70%' }}
           m={'auto'}
-          borderBottomWidth={2}
           minH={44}
-          borderColor={colors.textColor}
           borderRadius={0}
           justifyContent={'center'}
           p={3}
