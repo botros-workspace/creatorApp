@@ -8,7 +8,7 @@ import { StepComponent } from '../../shared/interfaces/StepComponentAttribute'
 import { ALL_EVENTS_PAGE } from '../../shared/constants/endpoints'
 import MainInformation from '../../components/EventRegister/MainInformation'
 import GeneralInformation from '../../components/EventRegister/GeneralInformation'
-import CategoriesSelectionContainer from '../../components/EventRegister/CategoriesSelectionContainer'
+import EventDetails from '../../components/EventRegister/EventDetails'
 
 const RegisterEvent: NextPage = () => {
   const businessRegisterSteps: StepComponent[] = [
@@ -20,7 +20,7 @@ const RegisterEvent: NextPage = () => {
     {
       label: 'Details',
       icon: HiOutlineExternalLink,
-      component: <CategoriesSelectionContainer />,
+      component: <EventDetails />,
     },
     {
       label: 'General Info',
@@ -28,7 +28,7 @@ const RegisterEvent: NextPage = () => {
       component: <GeneralInformation />,
     },
     {
-      label: 'Links',
+      label: 'Contacts',
       icon: HiOutlineExternalLink,
       component: <LinksContainer />,
     },

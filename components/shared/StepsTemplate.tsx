@@ -11,6 +11,7 @@ import axios from 'axios'
 import { uuid } from 'uuidv4'
 import { EventCategories } from '../../shared/enums/event-categories.enum'
 import { useColor } from '../../shared/hooks/use-color.hook'
+import { useSuccessToast } from '../../shared/hooks/use-error-toast.hook copy'
 
 type Props = {
   steps: StepComponent[]
@@ -40,6 +41,7 @@ const StepsTemplate: FunctionComponent<Props> = ({
   const [showResgisterBottom, setShowResgisterBottom] = useState(false)
   const router = useRouter()
   const colors = useColor()
+  const successToast = useSuccessToast()
   const submitHandler = async () => {
     let convertedCategories: string[] = []
     if (newEvent.other_categories.length === 0) {
@@ -122,10 +124,13 @@ const StepsTemplate: FunctionComponent<Props> = ({
         'https://api.balloon-events.com/creator/events',
         values
       )
-      console.log(values, 'Values on POST')
-      console.log('Response data: ', response.data)
-      console.log('Response: ', response)
-      const id = response.data.ident
+      if (response) {
+        console.log('Response data: ', response.data)
+        successToast('Event Creation', 'Event was created successfully!')
+        setNewEvent({ ...newEvent, selectedAddress: '', lat: 0, long: 0 })
+        setConfig({ ...config, newEventLocationProvided: false })
+        router.push(REGISTER_EVENT_LOCATION_PAGE)
+      }
     } catch (e) {
       console.log(e)
     }
@@ -236,7 +241,7 @@ const StepsTemplate: FunctionComponent<Props> = ({
             onClick={submitHandler}
             textColor={'white'}
           >
-            Register
+            Publish
           </Button>
         </Flex>
       )}

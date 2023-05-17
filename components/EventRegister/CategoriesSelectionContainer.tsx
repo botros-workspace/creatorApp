@@ -43,7 +43,7 @@ const CategoriesSelectionContainer: FunctionComponent = () => {
             border={0}
             value={primaryCategory}
             color={colors.textOnHover}
-            fontSize={{ base: 'xs', md: 'xl' }}
+            fontSize={{ base: 'md', md: 'xl' }}
             fontWeight={'bold'}
             letterSpacing={'wider'}
             onChange={(e) => {
@@ -89,7 +89,7 @@ const CategoriesSelectionContainer: FunctionComponent = () => {
             placeholder='Select category'
             border={0}
             color={colors.textOnHover}
-            fontSize={{ base: 'xs', md: 'xl' }}
+            fontSize={{ base: 'md', md: 'xl' }}
             fontWeight={'bold'}
             letterSpacing={'wider'}
             onChange={(e) => {

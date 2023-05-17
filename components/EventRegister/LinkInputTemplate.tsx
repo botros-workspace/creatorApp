@@ -33,6 +33,9 @@ const LinkInputTemplate: FunctionComponent<LinksInputAttributes> = ({
         <Input
           w={{ base: '100%', sm: 72, md: 96 }}
           type='text'
+          textColor={colors.textOnHover}
+          fontWeight={'semibold'}
+          p={4}
           //   {...register('twitter')}
         />
         <FormLabel
