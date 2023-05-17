@@ -234,6 +234,7 @@ const StepsTemplate: FunctionComponent<Props> = ({
             size='sm'
             isDisabled={!showResgisterBottom}
             onClick={submitHandler}
+            textColor={'white'}
           >
             Register
           </Button>
