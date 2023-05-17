@@ -14,7 +14,7 @@ const GalleryContainer: FunctionComponent = () => {
   return (
     <Flex flexDir={'column'} gap={4}>
       <Flex w={{ base: '90%', lg: '70%' }} m={'auto'} mb={4}>
-        <TitleTemplate title='Event image' />
+        <TitleTemplate isRequired={false} title='Event image' />
       </Flex>
       <Flex>
         <Box

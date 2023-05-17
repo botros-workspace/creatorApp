@@ -308,7 +308,7 @@ const MapContainer: FunctionComponent = () => {
 
       <Center w={'100%'} h={'20%'} p={4} pl={8}>
         <Flex flexDir={{ base: 'column', md: 'row' }} gap={{ base: 2, md: 8 }}>
-          <TitleTemplate title={'Choosen address: '} />
+          <TitleTemplate isRequired={true} title={'Choosen address: '} />
 
           <Box
             h={'100%'}
