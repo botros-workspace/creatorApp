@@ -10,6 +10,7 @@ import { newEventState } from '../../shared/recoilStates/new-event.state'
 import axios from 'axios'
 import { uuid } from 'uuidv4'
 import { EventCategories } from '../../shared/enums/event-categories.enum'
+import { useColor } from '../../shared/hooks/use-color.hook'
 
 type Props = {
   steps: StepComponent[]
@@ -38,6 +39,7 @@ const StepsTemplate: FunctionComponent<Props> = ({
   const [newEvent, setNewEvent] = useRecoilState(newEventState)
   const [showResgisterBottom, setShowResgisterBottom] = useState(false)
   const router = useRouter()
+  const colors = useColor()
   const submitHandler = async () => {
     let convertedCategories: string[] = []
     if (newEvent.other_categories.length === 0) {
@@ -199,16 +201,9 @@ const StepsTemplate: FunctionComponent<Props> = ({
             )}
           </Flex>
         </Flex>
-      ) : showResgisterBottom ? (
-        <Flex alignSelf='center' m={8}>
-          <Button size='sm' onClick={submitHandler}>
-            Register
-          </Button>
-        </Flex>
       ) : (
-        <Flex alignSelf='center' m={8}>
+        <Flex alignSelf='center' m={8} gap={4}>
           <Button
-            mr={4}
             onClick={() => {
               if (activeStep === 0) {
                 setConfig({ ...config, newEventLocationProvided: false })
@@ -233,6 +228,14 @@ const StepsTemplate: FunctionComponent<Props> = ({
             }
           >
             {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+          </Button>
+          <Button
+            background={colors.primaryColor}
+            size='sm'
+            isDisabled={!showResgisterBottom}
+            onClick={submitHandler}
+          >
+            Register
           </Button>
         </Flex>
       )}
