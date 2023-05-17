@@ -62,7 +62,7 @@ const LinksContainer: FunctionComponent = () => {
         w={'100%'}
         h={'100%'}
         flexDir={{ base: 'column', lg: 'row' }}
-        gap={{ base: 6, md: 0 }}
+        gap={{ base: 6, lg: 0 }}
         mt={{ base: 6, md: 0 }}
       >
         <Flex
