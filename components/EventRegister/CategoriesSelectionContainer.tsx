@@ -36,7 +36,7 @@ const CategoriesSelectionContainer: FunctionComponent = () => {
           borderColor={colors.textColor}
         >
           <Flex>
-            <TitleTemplate title='Primary Category' />
+            <TitleTemplate isRequired={true} title='Primary Category' />
           </Flex>
           <Select
             placeholder='Select primary category'
@@ -83,7 +83,7 @@ const CategoriesSelectionContainer: FunctionComponent = () => {
           borderColor={colors.textColor}
         >
           <Flex flexDir={'row'}>
-            <TitleTemplate title='Other Categories' />
+            <TitleTemplate isRequired={false} title='Other Categories' />
           </Flex>
           <Select
             placeholder='Select category'

@@ -54,7 +54,7 @@ const MainInformation: FunctionComponent = () => {
               borderBottomWidth={4}
               borderBottomColor={colors.textColor}
             >
-              <TitleTemplate title='Title' />
+              <TitleTemplate isRequired={true} title='Title' />
               <Input
                 w={'100%'}
                 value={eventTitle}
@@ -86,7 +86,7 @@ const MainInformation: FunctionComponent = () => {
               flexDir={'column'}
             >
               <Box marginBottom={'26px'}>
-                <TitleTemplate title='Starting time' />
+                <TitleTemplate isRequired={true} title='Starting time' />
               </Box>
               <input
                 type='datetime-local'
@@ -120,7 +120,7 @@ const MainInformation: FunctionComponent = () => {
               flexDir={'column'}
             >
               <Box marginBottom={'26px'}>
-                <TitleTemplate title='Finishing time' />
+                <TitleTemplate isRequired={true} title='Finishing time' />
               </Box>
               <input
                 type='datetime-local'
@@ -154,7 +154,7 @@ const MainInformation: FunctionComponent = () => {
               justifyContent={'space-between'}
             >
               <Box marginBottom={'26px'}>
-                <TitleTemplate title='Duration' />
+                <TitleTemplate isRequired={false} title='Duration' />
               </Box>
               <Text
                 color={colors.textOnHover}
@@ -171,7 +171,7 @@ const MainInformation: FunctionComponent = () => {
         <Flex flexDir={'column'} w={{ base: '100%', lg: '50%' }} gap={12}>
           <Flex h={44}>
             <Box w={{ base: '90%', lg: '70%' }} m={'auto'}>
-              <TitleTemplate title='Teaser' />
+              <TitleTemplate isRequired={false} title='Teaser' />
               <Textarea
                 w={'100%'}
                 value={eventTeaser}
