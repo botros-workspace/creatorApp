@@ -17,16 +17,16 @@ const RegisterEvent: NextPage = () => {
       icon: HiOutlineExternalLink,
       component: <MainInformation />,
     },
-    {
-      label: 'Details',
-      icon: HiOutlineExternalLink,
-      component: <EventDetails />,
-    },
-    {
-      label: 'General Info',
-      icon: HiOutlineExternalLink,
-      component: <GeneralInformation />,
-    },
+    // {
+    //   label: 'Details',
+    //   icon: HiOutlineExternalLink,
+    //   component: <EventDetails />,
+    // },
+    // {
+    //   label: 'General Info',
+    //   icon: HiOutlineExternalLink,
+    //   component: <GeneralInformation />,
+    // },
     {
       label: 'Contacts',
       icon: HiOutlineExternalLink,

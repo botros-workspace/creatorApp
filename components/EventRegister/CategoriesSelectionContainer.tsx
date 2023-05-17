@@ -120,31 +120,52 @@ const CategoriesSelectionContainer: FunctionComponent = () => {
           spacing={{ base: '12px', sm: '20px' }}
           w={{ base: '90%', lg: '70%' }}
           m={'auto'}
+          borderBottomWidth={2}
+          minH={44}
+          borderColor={colors.textColor}
+          borderRadius={0}
           justifyContent={'center'}
+          p={3}
         >
-          {selectedCategories.map((category) => {
-            return (
-              <Center key={category}>
-                <CategoryBottomTemplate
-                  category={category}
-                  canDelete={true}
-                  onDelete={() => {
-                    setNewEvent((currentEvent) => {
-                      const clonedEvent = cloneDeep(currentEvent)
-                      const index = clonedEvent.other_categories.findIndex(
-                        (singleCategory) => singleCategory === category
-                      )
-                      if (index > -1) {
-                        clonedEvent.other_categories.splice(index, 1)
-                      }
+          {selectedCategories.length === 0 ? (
+            <Center>
+              <Box
+                w={44}
+                h={8}
+                borderWidth={2}
+                borderRadius={'lg'}
+                borderColor={colors.textOnHover}
+                textAlign={'center'}
+                textColor={'gray.500'}
+              >
+                None selected...
+              </Box>
+            </Center>
+          ) : (
+            selectedCategories.map((category) => {
+              return (
+                <Center key={category}>
+                  <CategoryBottomTemplate
+                    category={category}
+                    canDelete={true}
+                    onDelete={() => {
+                      setNewEvent((currentEvent) => {
+                        const clonedEvent = cloneDeep(currentEvent)
+                        const index = clonedEvent.other_categories.findIndex(
+                          (singleCategory) => singleCategory === category
+                        )
+                        if (index > -1) {
+                          clonedEvent.other_categories.splice(index, 1)
+                        }
 
-                      return clonedEvent
-                    })
-                  }}
-                />
-              </Center>
-            )
-          })}
+                        return clonedEvent
+                      })
+                    }}
+                  />
+                </Center>
+              )
+            })
+          )}
         </SimpleGrid>
       </Flex>
     </Box>

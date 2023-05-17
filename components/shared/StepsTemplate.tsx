@@ -231,8 +231,11 @@ const StepsTemplate: FunctionComponent<Props> = ({
             size='sm'
             onClick={() =>
               activeStep === steps.length - 1
-                ? (onFinishClick(), nextStep())
+                ? (submitHandler(), nextStep())
                 : nextStep()
+            }
+            isDisabled={
+              activeStep === steps.length - 1 ? !showResgisterBottom : false
             }
           >
             {activeStep === steps.length - 1 ? 'Finish' : 'Next'}

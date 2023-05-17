@@ -13,7 +13,6 @@ const MainInformation: FunctionComponent = () => {
   const [newEvent, setNewEvent] = useRecoilState(newEventState)
   const [eventDuration, setEventDuration] = useState('')
   const [eventTitle, setEventTitle] = useState('')
-  const [eventTeaser, setEventTeaser] = useState('')
   const [eventEndTime, setEventEndTime] = useState('')
   const [eventStartTime, setEventStartTime] = useState('')
   const colors = useColor()
@@ -22,7 +21,6 @@ const MainInformation: FunctionComponent = () => {
     setEventTitle(newEvent.title)
     setEventEndTime(newEvent.eventEndDateTime)
     setEventStartTime(newEvent.eventStartDateTime)
-    setEventTeaser(newEvent.teaser)
     if (newEvent.eventStartDateTime && newEvent.eventEndDateTime) {
       setEventDuration(
         getEventDuration(newEvent.eventStartDateTime, newEvent.eventEndDateTime)
@@ -30,12 +28,7 @@ const MainInformation: FunctionComponent = () => {
     } else {
       setEventDuration('')
     }
-  }, [
-    newEvent.eventEndDateTime,
-    newEvent.eventStartDateTime,
-    newEvent.teaser,
-    newEvent.title,
-  ])
+  }, [newEvent.eventEndDateTime, newEvent.eventStartDateTime, newEvent.title])
   return (
     <Flex w='100%' h='100%' flexDir={'column'}>
       <Flex
@@ -169,31 +162,6 @@ const MainInformation: FunctionComponent = () => {
           </Flex>
         </Flex>
         <Flex flexDir={'column'} w={{ base: '100%', lg: '50%' }} gap={12}>
-          <Flex h={44}>
-            <Box w={{ base: '90%', lg: '70%' }} m={'auto'}>
-              <TitleTemplate isRequired={false} title='Teaser' />
-              <Textarea
-                w={'100%'}
-                value={eventTeaser}
-                outline={'none'}
-                fontWeight={'semibold'}
-                color={colors.textOnHover}
-                boxShadow={'none'}
-                borderColor={colors.textColor}
-                fontSize={{ base: 18, md: 24 }}
-                h={44}
-                borderWidth={2}
-                resize={'none'}
-                onChange={(e) =>
-                  setNewEvent({ ...newEvent, teaser: e.target.value })
-                }
-                _focus={{
-                  boxShadow: 'none ',
-                }}
-                placeholder='Enter event teaser...'
-              />
-            </Box>
-          </Flex>
           <CategoriesSelectionContainer />
         </Flex>
       </Flex>
