@@ -71,9 +71,10 @@ const MapContainer: FunctionComponent = () => {
         `https://api.mapbox.com/geocoding/v5/mapbox.places/${long},${lat}.json?types=address&access_token=${MAPBOX_API_KEY}`
       )
       if (
-        res &&
-        newEvent.selectedAddress?.toString() !==
-          res.data.features[0]?.place_name.toString()
+        (res &&
+          newEvent.selectedAddress?.toString() !==
+            res.data.features[0]?.place_name.toString()) ||
+        (res && newEvent.selectedAddress === undefined)
       ) {
         setNewEvent({
           ...newEvent,
@@ -90,6 +91,7 @@ const MapContainer: FunctionComponent = () => {
     (event: MarkerDragEvent) => {
       fetchAddress(event.lngLat.lng, event.lngLat.lat)
     },
+
     [fetchAddress]
   )
   const add_marker = useCallback(
@@ -151,7 +153,10 @@ const MapContainer: FunctionComponent = () => {
   )
 
   useEffect(() => {
-    if (newEvent.selectedAddress !== '') {
+    if (
+      newEvent.selectedAddress !== '' ||
+      newEvent.selectedAddress === undefined
+    ) {
       setIsLoading(true)
       setMarker({
         latitude: newEvent.lat,
@@ -205,7 +210,7 @@ const MapContainer: FunctionComponent = () => {
       newEvent.long !== 0
     ) {
       setAddressPlaceHolder('Only location coordinates are available!')
-    } else {
+    } else if (newEvent.selectedAddress !== undefined) {
       setAddressPlaceHolder(newEvent.selectedAddress)
     }
   }, [newEvent.lat, newEvent.long, newEvent.selectedAddress])
@@ -254,12 +259,17 @@ const MapContainer: FunctionComponent = () => {
               onDrag={onMarkerDrag}
             ></Marker>
 
-            <Marker
-              longitude={userMarker.longitude}
-              latitude={userMarker.latitude}
-            >
-              <Image src={'./images/userLocationIcon.png'} alt='Marker Icon' />
-            </Marker>
+            {userMarker.longitude !== 0 && userMarker.latitude !== 0 && (
+              <Marker
+                longitude={userMarker.longitude}
+                latitude={userMarker.latitude}
+              >
+                <Image
+                  src={'./images/userLocationIcon.png'}
+                  alt='Marker Icon'
+                />
+              </Marker>
+            )}
 
             <NavigationControl />
           </ReactMapGL>

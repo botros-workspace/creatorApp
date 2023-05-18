@@ -10,7 +10,7 @@ export interface EventAttributes {
   long: number
   primary_category: EventCategories
   other_categories: EventCategories[]
-  selectedAddress: string
+  selectedAddress: string | undefined
   teaser: string
   description: string
   phone_number: string
