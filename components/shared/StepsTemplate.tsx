@@ -83,7 +83,10 @@ const StepsTemplate: FunctionComponent<Props> = ({
         ident: uuid(),
         lat: newEvent.lat,
         lon: newEvent.long,
-        name: newEvent.selectedAddress,
+        name:
+          newEvent.selectedAddress === undefined
+            ? ''
+            : newEvent.selectedAddress,
         role: 'primary',
       },
       is_qualified_data: true,
