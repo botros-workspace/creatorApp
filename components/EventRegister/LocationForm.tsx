@@ -24,6 +24,11 @@ const LocationForm: FunctionComponent = () => {
   useEffect(() => {
     setCanRegister(newEvent.selectedAddress === '')
   }, [newEvent.selectedAddress])
+  useEffect(() => {
+    if (config.newEventLocationProvided) {
+      setConfig({ ...config, newEventLocationProvided: false })
+    }
+  }, [config, setConfig])
   return (
     <Box w={'100%'} height={'100vh'}>
       <Map />

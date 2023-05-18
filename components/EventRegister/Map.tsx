@@ -40,6 +40,7 @@ const MapContainer: FunctionComponent = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [initialLoading, setInintialLoading] = useState<boolean>(false)
   const [searchResult, setSearchResult] = useState('')
+  const [addressPlaceHolder, setAddressPlaceHolder] = useState('')
   const colors = useColor()
   const [showSelectedLocationMark, setShowSelectedLocationMark] =
     useState(false)
@@ -191,6 +192,23 @@ const MapContainer: FunctionComponent = () => {
       setIsLoading(false)
     }, 500)
   }, [marker.latitude, marker.longitude])
+  useEffect(() => {
+    if (
+      newEvent.selectedAddress === '' &&
+      newEvent.lat === 0 &&
+      newEvent.long === 0
+    ) {
+      setAddressPlaceHolder('Please choose a location...')
+    } else if (
+      newEvent.selectedAddress === undefined &&
+      newEvent.lat !== 0 &&
+      newEvent.long !== 0
+    ) {
+      setAddressPlaceHolder('Only location coordinates are available!')
+    } else {
+      setAddressPlaceHolder(newEvent.selectedAddress)
+    }
+  }, [newEvent.lat, newEvent.long, newEvent.selectedAddress])
   return (
     <Box w={'100%'} height={'90%'}>
       <Box position='relative' data-group>
@@ -325,9 +343,7 @@ const MapContainer: FunctionComponent = () => {
                 m={'auto'}
                 textAlign={'center'}
               >
-                {newEvent.selectedAddress === ''
-                  ? 'Please choose a location...'
-                  : newEvent.selectedAddress}
+                {addressPlaceHolder}
               </Text>
               {showSelectedLocationMark && (
                 <Button
