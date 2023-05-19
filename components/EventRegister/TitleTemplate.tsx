@@ -29,7 +29,12 @@ const TitleTemplate: FunctionComponent<Props> = ({ title, isRequired }) => {
           placement={'auto'}
           shouldWrapChildren={false}
         >
-          <Box ml={2} color={'red'} cursor={'pointer'}>
+          <Box
+            ml={2}
+            color={'red'}
+            fontSize={{ base: 'xs', md: 'xl' }}
+            cursor={'pointer'}
+          >
             <FaStarOfLife />
           </Box>
         </TooltipTemplate>

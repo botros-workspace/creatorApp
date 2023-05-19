@@ -17,7 +17,7 @@ import React, {
   useState,
 } from 'react'
 import axios from 'axios'
-import { MdMyLocation } from 'react-icons/md'
+import { RiUserLocationFill } from 'react-icons/ri'
 import { useColor } from '../../shared/hooks/use-color.hook'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { GoSearch } from 'react-icons/go'
@@ -235,8 +235,9 @@ const MapContainer: FunctionComponent = () => {
               }}
               variant='outline'
               colorScheme='purple'
-              aria-label='Send email'
-              icon={<MdMyLocation />}
+              fontSize={{ base: 'xl', md: '2xl' }}
+              aria-label='Location'
+              icon={<RiUserLocationFill />}
             />
           </Flex>
           <ReactMapGL
@@ -344,32 +345,34 @@ const MapContainer: FunctionComponent = () => {
             w={{ base: 64, sm: 80, lg: 'lg' }}
             textAlign={'center'}
           >
-            <Flex flexDir={'row'} w={'98%'}>
+            <Flex flexDir={'row'} w={'98%'} gap={1}>
               <Text
                 fontSize={{ base: 16, md: 24 }}
                 color={colors.textOnHover}
                 fontWeight={'semibold'}
-                h={'100%'}
                 m={'auto'}
-                textAlign={'center'}
+                h={16}
+                overflowY={'scroll'}
               >
                 {addressPlaceHolder}
               </Text>
               {showSelectedLocationMark && (
-                <Button
-                  w={14}
-                  h={12}
-                  m={'auto'}
-                  fontSize={'2xl'}
-                  variant={'outline'}
-                  borderColor={colors.secondaryColor}
-                  color={colors.primaryColor}
-                  onClick={() => {
-                    changeView(newEvent.long, newEvent.lat)
-                  }}
-                >
-                  <TbCurrentLocation />
-                </Button>
+                <Box h={16} w={14}>
+                  <Button
+                    w={14}
+                    h={12}
+                    m={'auto'}
+                    fontSize={{ base: 'md', md: '2xl' }}
+                    variant={'outline'}
+                    borderColor={colors.secondaryColor}
+                    color={colors.primaryColor}
+                    onClick={() => {
+                      changeView(newEvent.long, newEvent.lat)
+                    }}
+                  >
+                    <TbCurrentLocation />
+                  </Button>
+                </Box>
               )}
             </Flex>
             <Box
