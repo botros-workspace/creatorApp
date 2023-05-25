@@ -7,9 +7,8 @@ import { getEventDuration } from '../../shared/functions/get-event-duration'
 import { useRecoilState } from 'recoil'
 import { newEventState } from '../../shared/recoilStates/new-event.state'
 import CategoriesSelectionContainer from './CategoriesSelectionContainer'
-import { Textarea } from '@chakra-ui/react'
 
-const MainInformation: FunctionComponent = () => {
+const MainInformationContainer: FunctionComponent = () => {
   const [newEvent, setNewEvent] = useRecoilState(newEventState)
   const [eventDuration, setEventDuration] = useState('')
   const [eventTitle, setEventTitle] = useState('')
@@ -169,4 +168,4 @@ const MainInformation: FunctionComponent = () => {
   )
 }
 
-export default MainInformation
+export default MainInformationContainer

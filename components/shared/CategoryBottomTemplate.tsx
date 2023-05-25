@@ -7,12 +7,10 @@ import { IoCloseSharp } from 'react-icons/io5'
 
 type Props = {
   category: EventCategories
-  canDelete: boolean
   onDelete?: () => void
 }
 const CategoryBottomTemplate: FunctionComponent<Props> = ({
   category,
-  canDelete,
   onDelete,
 }) => {
   const colors = useColor()
@@ -37,7 +35,7 @@ const CategoryBottomTemplate: FunctionComponent<Props> = ({
       >
         {capatalizedText(category)}
       </Text>
-      {canDelete && onDelete && (
+      {onDelete && (
         <Center
           h={'100%'}
           w={'30%'}

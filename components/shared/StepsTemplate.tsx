@@ -14,7 +14,7 @@ import axios from 'axios'
 import { uuid } from 'uuidv4'
 import { EventCategories } from '../../shared/enums/event-categories.enum'
 import { useColor } from '../../shared/hooks/use-color.hook'
-import { useSuccessToast } from '../../shared/hooks/use-error-toast.hook copy'
+import { useSuccessToast } from '../../shared/hooks/use-success-toast.hook'
 
 type Props = {
   steps: StepComponent[]

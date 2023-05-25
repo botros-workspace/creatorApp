@@ -2,6 +2,7 @@ import { Flex, Text, Box } from '@chakra-ui/react'
 import React, { FunctionComponent } from 'react'
 import { useColor } from '../../shared/hooks/use-color.hook'
 import { FaStarOfLife } from 'react-icons/fa'
+import { BsInfoCircle } from 'react-icons/bs'
 import TooltipTemplate from '../shared/TooltipTemplate'
 type Props = {
   title: string
@@ -31,7 +32,7 @@ const TitleTemplate: FunctionComponent<Props> = ({ title, isRequired }) => {
         >
           <Box
             ml={2}
-            color={'red'}
+            color={'yellow.400'}
             fontSize={{ base: 'xs', md: 'xl' }}
             cursor={'pointer'}
           >
@@ -39,6 +40,23 @@ const TitleTemplate: FunctionComponent<Props> = ({ title, isRequired }) => {
           </Box>
         </TooltipTemplate>
       )}
+
+      <TooltipTemplate
+        label={'Info!'}
+        hasArrow={false}
+        placement={'auto'}
+        shouldWrapChildren={false}
+      >
+        <Box
+          ml={2}
+          mb={2}
+          color={colors.primaryColor}
+          fontSize={{ base: 'xs', md: '2xl' }}
+          cursor={'pointer'}
+        >
+          <BsInfoCircle />
+        </Box>
+      </TooltipTemplate>
     </Flex>
   )
 }

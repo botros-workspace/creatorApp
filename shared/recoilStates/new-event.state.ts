@@ -9,7 +9,7 @@ export const initialEventState: EventAttributes = {
   eventEndDateTime: '',
   eventStartDateTime: '',
   eventDuration: '',
-  eventImage: undefined,
+  eventImages: [],
   lat: 0,
   long: 0,
   primary_category: EventCategories.UNDEFINED_CATEGORY,
@@ -20,6 +20,14 @@ export const initialEventState: EventAttributes = {
   phone_number: '',
   website: '',
   weather_dependent: '',
+  averagePrices: [0, 100],
+  avergaeAge: [0, 100],
+  averagePassive: [0, 100],
+  averageContemplative: [0, 100],
+  attendeLimit: 0,
+  isIndoor: false,
+  isOutdoor: false,
+  isPreparedForRain: false,
 }
 export const newEventState = atom<EventAttributes>({
   key: 'newEvent',

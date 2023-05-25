@@ -1,21 +1,21 @@
-import { useToast } from '@chakra-ui/react';
-import { useCallback } from 'react';
+import { useToast } from '@chakra-ui/react'
+import { useCallback } from 'react'
 
-export function useErrorToast() {
-    const toast = useToast();
+export function useSuccessToast() {
+  const toast = useToast()
 
-    return useCallback(
-        (title: string, message: string) => {
-            toast({
-                title: `Error: ${title}`,
-                description: message,
-                status: 'error',
-                isClosable: true,
-                duration: null,
-                variant: 'subtle',
-                size: 'xs',
-            });
-        },
-        [toast]
-    );
+  return useCallback(
+    (title: string, message: string) => {
+      toast({
+        title,
+        description: message,
+        status: 'success',
+        isClosable: true,
+        duration: 3000,
+        variant: 'subtle',
+        size: 'xs',
+      })
+    },
+    [toast]
+  )
 }

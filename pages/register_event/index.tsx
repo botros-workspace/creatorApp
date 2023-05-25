@@ -9,9 +9,9 @@ import {
   ALL_EVENTS_PAGE,
   REGISTER_EVENT_LOCATION_PAGE,
 } from '../../shared/constants/endpoints'
-import MainInformation from '../../components/EventRegister/MainInformation'
-import GeneralInformation from '../../components/EventRegister/GeneralInformation'
-import EventDetails from '../../components/EventRegister/EventDetails'
+import MainInformationContainer from '../../components/EventRegister/MainInformationContainer'
+import GeneralInformationContainer from '../../components/EventRegister/GeneralInformationContainer'
+import EventDetailsContainer from '../../components/EventRegister/EventDetailsContainer'
 import { useRouter } from 'next/router'
 import { useRecoilState } from 'recoil'
 import { newEventState } from '../../shared/recoilStates/new-event.state'
@@ -24,18 +24,18 @@ const RegisterEvent: NextPage = () => {
     {
       label: 'Main Info',
       icon: HiOutlineExternalLink,
-      component: <MainInformation />,
+      component: <MainInformationContainer />,
     },
-    // {
-    //   label: 'Details',
-    //   icon: HiOutlineExternalLink,
-    //   component: <EventDetails />,
-    // },
-    // {
-    //   label: 'General Info',
-    //   icon: HiOutlineExternalLink,
-    //   component: <GeneralInformation />,
-    // },
+    {
+      label: 'Details',
+      icon: HiOutlineExternalLink,
+      component: <EventDetailsContainer />,
+    },
+    {
+      label: 'General Info',
+      icon: HiOutlineExternalLink,
+      component: <GeneralInformationContainer />,
+    },
     {
       label: 'Contacts',
       icon: HiOutlineExternalLink,

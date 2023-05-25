@@ -1,17 +1,17 @@
 import { useToast } from '@chakra-ui/react'
 import { useCallback } from 'react'
 
-export function useSuccessToast() {
+export function useErrorToast() {
   const toast = useToast()
 
   return useCallback(
     (title: string, message: string) => {
       toast({
-        title,
+        title: `Error: ${title}`,
         description: message,
-        status: 'success',
+        status: 'error',
         isClosable: true,
-        duration: 1200,
+        duration: 5000,
         variant: 'subtle',
         size: 'xs',
       })

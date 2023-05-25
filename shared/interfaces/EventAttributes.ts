@@ -2,7 +2,7 @@ import { EventCategories } from '../enums/event-categories.enum'
 
 export interface EventAttributes {
   title: string
-  eventImage: File | undefined
+  eventImages: { name: string; image: File }[]
   eventStartDateTime: string
   eventEndDateTime: string
   eventDuration: string
@@ -16,4 +16,12 @@ export interface EventAttributes {
   phone_number: string
   website: string
   weather_dependent: string
+  averagePrices: number[]
+  avergaeAge: number[]
+  averagePassive: number[]
+  averageContemplative: number[]
+  attendeLimit: number
+  isIndoor: boolean
+  isOutdoor: boolean
+  isPreparedForRain: boolean
 }

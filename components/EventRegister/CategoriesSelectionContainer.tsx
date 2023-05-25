@@ -1,11 +1,10 @@
-import { Flex, Text, Box, Select, Center, SimpleGrid } from '@chakra-ui/react'
+import { Flex, Box, Select, Center, SimpleGrid } from '@chakra-ui/react'
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import { useColor } from '../../shared/hooks/use-color.hook'
 import TitleTemplate from './TitleTemplate'
 import { EventCategories } from '../../shared/enums/event-categories.enum'
 import { capatalizedText } from '../../shared/functions/captalize-text'
 import CategoryBottomTemplate from '../shared/CategoryBottomTemplate'
-import { EventAttributes } from '../../shared/interfaces/EventAttributes'
 import { useRecoilState } from 'recoil'
 import { newEventState } from '../../shared/recoilStates/new-event.state'
 import { cloneDeep } from 'lodash'
@@ -145,7 +144,6 @@ const CategoriesSelectionContainer: FunctionComponent = () => {
                 <Center key={category}>
                   <CategoryBottomTemplate
                     category={category}
-                    canDelete={true}
                     onDelete={() => {
                       setNewEvent((currentEvent) => {
                         const clonedEvent = cloneDeep(currentEvent)
